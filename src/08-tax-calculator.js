@@ -1,5 +1,5 @@
 /**
- * 💰 Sam's Tax Calculator
+ * 💰 Sam the  Tax Calculator
  *
  * Sam is a freelance graphic designer who dreads tax season every year.
  * Help Sam by building a tax calculator that uses progressive tax brackets.
@@ -27,4 +27,24 @@
  */
 export function calculateTax(income) {
   // Your code here
+  let tax;
+  if(income<0 || income==0){
+    return 0;
+  }
+
+  if(income<=10000){
+    tax=0;
+  }
+  else if(income<=30000 && income>10000){
+    tax=0.1*(income-10000);
+  }
+
+  else if(income<=70000 && income>30000){
+    tax=0.2*(income-30000)+0.1*(30000-10000);
+  }
+  else if(income>70000){
+    tax=0+0.1*20000+0.2*(70000-30000)+0.3*(income-70000);
+  }
+  return tax;
+
 }
